@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mahmoud Tarek Noser, Microsoft-certified Data Analyst. Explore Power BI, SQL Server and Excel case studies in retail, education and finance.">
+<title>Mahmoud Tarek Noser | Data Analyst</title>
+<link rel="stylesheet" href="styles.css">
+<script src="portfolio.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="#main" aria-label="Mahmoud Tarek Noser home"><span class="monogram">MN</span><span>Mahmoud Noser</span></a>
+    <div class="navlinks"><a href="#projects">Projects</a><a href="#about">About</a></div>
+    <div class="nav-actions">
+      <a class="button small nav-contact" href="#contact">Contact</a>
+      <a class="button small primary nav-cv" href="Mahmoud_Tarek_Noser_CV.pdf" download>Download CV</a>
+    </div>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="name">
+    <div class="hero-copy">
+      <h1 id="name"><span class="greeting">Hi, I'm</span> Mahmoud<br>Tarek Noser</h1>
+      <p class="eyebrow hero-role">Data Analyst <span aria-hidden="true">/</span> Business Intelligence</p>
+      <p class="intro">I turn raw data into reliable KPIs and interactive dashboards that help teams spot performance gaps and decide what to address first</p>
+      <div class="actions">
+        <a class="button primary" href="#projects">Explore Projects</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/mahmoud-noser2/">LinkedIn</a>
+      </div>
+      <p class="verified">Microsoft Certified <span aria-hidden="true">·</span> Power BI Data Analyst Associate</p>
+    </div>
+    <figure class="portrait">
+      <img src="portrait.png" alt="Mahmoud Tarek Noser in a navy suit" width="1122" height="1402" fetchpriority="high">
+      <figcaption>Cairo, Egypt</figcaption>
+    </figure>
+  </section>
+
+  <section class="work" id="projects" aria-labelledby="projects-title">
+    <div class="wrap">
+      <h2 id="projects-title">Selected projects</h2>
+      <article class="featured" aria-labelledby="voltiva-title">
+        <div class="feature-copy">
+          <p class="eyebrow">Graduation capstone</p>
+          <h3 id="voltiva-title">Voltiva</h3>
+          <p class="subtitle">B.TECH-Inspired Retail &amp; Supply Chain BI</p>
+          <p>Our team built an end-to-end BI solution for Voltiva, a simulated multichannel electronics retailer. Four Power BI report pages help managers prioritize stock replenishment, rebalance excess inventory, and investigate supplier and returns issues.</p>
+          <ul class="tags" aria-label="Tools"><li>SQL Server</li><li>Power BI</li><li>Power Query</li><li>DAX</li></ul>
+        </div>
+        <div class="feature-view">
+          <div class="tablist" role="tablist" aria-label="Voltiva report areas">
+            <button id="priority-tab" type="button" role="tab" aria-controls="voltiva-view" aria-selected="true" data-view="priority">Executive Overview</button>
+            <button id="inventory-tab" type="button" role="tab" aria-controls="voltiva-view" aria-selected="false" data-view="inventory" tabindex="-1">Inventory</button>
+            <button id="supplier-tab" type="button" role="tab" aria-controls="voltiva-view" aria-selected="false" data-view="supplier" tabindex="-1">Suppliers</button>
+            <button id="returns-tab" type="button" role="tab" aria-controls="voltiva-view" aria-selected="false" data-view="returns" tabindex="-1">Returns</button>
+          </div>
+          <div class="report" id="voltiva-view" role="tabpanel" aria-labelledby="priority-tab" tabindex="0">
+            <p class="report-label" id="view-label">Management priorities</p>
+            <a class="shot" href="voltiva-overview.png" target="_blank" rel="noopener" aria-label="Open Executive Overview screenshot at full size">
+              <img src="voltiva-overview.png" alt="Executive Overview Power BI report" width="2232" height="1286" loading="lazy">
+            </a>
+            <div class="metrics" id="metrics">
+              <div class="metric"><strong>7.56%</strong><span>Historical stockout rate</span></div>
+              <div class="metric"><strong>64.82%</strong><span>Supplier OTIF</span></div>
+            </div>
+            <p class="view-note" id="view-note">Prioritize replenishment where availability is low and rebalance stock where the data shows excess.</p>
+          </div>
+        </div>
+        <details class="implementation">
+          <summary>How we built Voltiva</summary>
+          <p>We processed data through Bronze, Silver and Gold layers in SQL Server, validated the data, then built a galaxy schema with 9 dimensions and 5 fact tables. In Power BI, we used report pages for Inventory, Suppliers, Returns and Executive Overview to connect operational KPIs with follow-up actions.</p>
+          <p><strong>My contribution</strong> included developing DAX measures and designing the Power BI dashboard interface.</p>
+        </details>
+      </article>
+      <div class="case-grid">
+        <article class="case">
+          <p class="eyebrow">Education analytics</p>
+          <h3>Digilians LMS</h3>
+          <p>Tracked trainee progress, engagement and attendance to help the program identify performance gaps.</p>
+          <div class="feature-view case-media" data-lms>
+            <div class="tablist" role="tablist" aria-label="DigiLians LMS report pages">
+              <button id="lms-overview-tab" type="button" role="tab" aria-controls="lms-view" aria-selected="true" data-view="overview">Executive Overview</button>
+              <button id="lms-performance-tab" type="button" role="tab" aria-controls="lms-view" aria-selected="false" tabindex="-1" data-view="performance">Student Performance</button>
+              <button id="lms-attendance-tab" type="button" role="tab" aria-controls="lms-view" aria-selected="false" tabindex="-1" data-view="attendance">Attendance</button>
+            </div>
+            <div class="report case-report" id="lms-view" role="tabpanel" aria-labelledby="lms-overview-tab">
+              <a class="shot" href="lms-overview.png" target="_blank" rel="noopener" aria-label="Open DigiLians Executive Overview screenshot at full size">
+                <img src="lms-overview.png" alt="DigiLians Executive Overview Power BI report" width="1280" height="721" loading="lazy">
+              </a>
+              <p class="view-note">An overview of 138 trainees, their scores and attendance across universities and academic years.</p>
+            </div>
+          </div>
+          <ul class="tags" aria-label="Tools"><li>Power BI</li><li>SQL Server</li><li>DAX</li></ul>
+        </article>
+        <article class="case">
+          <p class="eyebrow">Financial analytics</p>
+          <h3>Financial Performance &amp; Budget Analysis</h3>
+          <p>Built an Excel dashboard for comparing budget and actuals by department and identifying where to investigate variances.</p>
+          <a class="shot case-media" href="finance.png" target="_blank" rel="noopener" aria-label="Open financial performance dashboard screenshot at full size">
+            <img src="finance.png" alt="Excel dashboard comparing actual spending and budget by department and month" width="1074" height="736" loading="lazy">
+          </a>
+          <div class="finance-kpi"><strong>4.7%</strong><span>Budget variance</span></div>
+          <ul class="tags" aria-label="Tools"><li>Excel</li><li>Power Query</li><li>Financial KPIs</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap about" id="about" aria-labelledby="about-title">
+    <div>
+      <h2 id="about-title">About me</h2>
+      <p>I studied Computer Science at Mansoura University and completed the Digilians Professional Data Analysis track. My work covers data preparation, dimensional modeling, DAX, and dashboard development.</p>
+      <ul class="tags" aria-label="Toolkit"><li>SQL Server</li><li>Power BI</li><li>Excel</li><li>Python</li></ul>
+    </div>
+    <div>
+      <h3>Certifications</h3>
+      <ul class="certs">
+        <li><strong>Power BI Data Analyst Associate</strong><span>Microsoft · PL-300</span></li>
+        <li><strong>Data Analytics Professional Certificate</strong><span>Google</span></li>
+        <li><strong>Python Programming Basics</strong><span>Huawei ICT Academy</span></li>
+      </ul>
+    </div>
+  </section>
+  <footer class="footer" id="contact">
+    <div class="wrap footer-inner">
+      <div><h2>Get in touch</h2><div class="contact-links"><a class="email" href="mailto:noser.analyst@gmail.com">noser.analyst@gmail.com</a><a class="email" href="tel:+201280950732">01280950732</a></div></div>
+      <div class="actions">
+        <a class="button primary" href="https://www.linkedin.com/in/mahmoud-noser2/">LinkedIn</a>
+        <a class="button secondary" href="Mahmoud_Tarek_Noser_CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </footer>
+</main>
+</body>
+</html>
