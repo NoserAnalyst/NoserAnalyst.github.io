@@ -73,7 +73,7 @@ function initializeTabs(panel, tabs, views) {
     note.textContent = view.note;
     shot.href = view.image;
     shot.setAttribute('aria-label', 'Open ' + view.title + ' screenshot at full size');
-    image.src = view.image;
+    image.src = view.image.replace(/\.png$/, '-preview.jpg');
     image.alt = view.title;
     image.width = view.width ?? 2232;
     image.height = view.height ?? 1286;
