@@ -58,7 +58,12 @@ function initializeTabs(panel, tabs, views) {
   const metrics = panel.querySelector('.metrics');
   const note = panel.querySelector('.view-note');
   const shot = panel.querySelector('.shot');
-  const image = shot.querySelector('img');
+  let image = shot.querySelector('img');
+  const status = document.createElement('span');
+  status.className = 'report-label';
+  status.setAttribute('role', 'status');
+  status.hidden = true;
+  shot.prepend(status);
 
   function selectTab(tab) {
     const view = views[tab.dataset.view];
@@ -73,10 +78,34 @@ function initializeTabs(panel, tabs, views) {
     note.textContent = view.note;
     shot.href = view.image;
     shot.setAttribute('aria-label', 'Open ' + view.title + ' screenshot at full size');
-    image.src = view.image.replace(/\.png$/, '-preview.jpg');
-    image.alt = view.title;
-    image.width = view.width ?? 2232;
-    image.height = view.height ?? 1286;
+    const nextImage = document.createElement('img');
+    nextImage.alt = view.title;
+    nextImage.width = view.width ?? 2232;
+    nextImage.height = view.height ?? 1286;
+    nextImage.loading = 'eager';
+    nextImage.decoding = 'async';
+    status.textContent = 'Loading ' + view.title + '…';
+    status.hidden = false;
+    shot.setAttribute('aria-busy', 'true');
+    let usingOriginal = false;
+    nextImage.addEventListener('load', () => {
+      if (image !== nextImage) return;
+      status.hidden = true;
+      shot.removeAttribute('aria-busy');
+    });
+    nextImage.addEventListener('error', () => {
+      if (image !== nextImage) return;
+      if (!usingOriginal) {
+        usingOriginal = true;
+        nextImage.src = view.image;
+        return;
+      }
+      status.textContent = 'Image could not load. Click to open the full-size screenshot or select the page again.';
+      shot.removeAttribute('aria-busy');
+    });
+    image.replaceWith(nextImage);
+    image = nextImage;
+    nextImage.src = view.image.replace(/\.png$/, '-preview.jpg');
 
     if (label) label.textContent = view.label;
     if (metrics) {
@@ -103,7 +132,7 @@ function initializeTabs(panel, tabs, views) {
         End: tabs.length - 1
       };
 
-      if (!Object.hasOwn(targets, event.key)) return;
+      if (!Object.prototype.hasOwnProperty.call(targets, event.key)) return;
       event.preventDefault();
       const next = tabs[targets[event.key]];
       selectTab(next);
